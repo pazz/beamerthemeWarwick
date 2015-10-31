@@ -1,0 +1,92 @@
+\mode<presentation>
+
+% Frame title
+\defbeamertemplate*{frametitle}{Warwick}[1][]
+{
+%\vskip0.5cm%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.5cm]{frametitle} 
+  \begin{tikzpicture}
+  \useasboundingbox[fill=white](0,-0.5) rectangle(\the\paperwidth,\the\paperheight);
+  \fill [wwblue]
+      (0,\the\paperheight) -- 
+      (\the\paperwidth,\the\paperheight) -- 
+      (\the\paperwidth,0.7) -- 
+      (2.0,0.7) --
+      (1.6,0) --
+      (1.3,0.6) --
+      (1,0.0) --
+      (0.6,0.7) --
+      (0,0.7) --
+      cycle;
+   
+   \ifx\insertframesubtitle\@empty%
+      {\node[anchor=west, font=\Large] at (2.5,0){\insertframetitle};}
+      \else%
+      {\node[anchor= west, font=\large] at (2.5,0.2){\insertframetitle};%
+       \node[anchor= west, font=\small] at (3,0.1){\insertframesubtitle};}%
+      \fi
+  \end{tikzpicture}
+  \end{beamercolorbox}
+%\vskip0.3cm%
+}
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \fill[color=wwviolet] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+  %\fill[color=orange] (0,0) rectangle(2.95,1.9);
+  %\fill[color=blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.9);
+  \ifnum\thepage>1\relax%
+\ifbeamercolorempty[bg]{background canvas}{}{\color{bg}}%
+   \fill[wwblue!0] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+   \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{Warwick}[1][]
+{ 
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.8cm]{frametitle} 
+  \begin{tikzpicture}
+  \useasboundingbox[fill=white](0,-1) rectangle(\the\paperwidth,\the\paperheight);
+  \fill [wwviolet]
+      (0,\the\paperheight) -- 
+      (\the\paperwidth,\the\paperheight) -- 
+      (\the\paperwidth,0.7) -- 
+      (2.0,0.7) --
+      (1.6,0) --
+      (1.3,0.6) --
+      (1,0.0) --
+      (0.6,0.7) --
+      (0,0.7) --
+      cycle;
+   
+      \node (logoleft) at (1.35,-0.5)[]{
+          \includegraphics[width=2.5cm]{wwlogo.png}};
+      %\node (logoright) at (12.8cm,0.6)[anchor=north east]{
+      %    \includegraphics[height=1.5cm]{pictures/labri.jpg}};
+
+%   \ifx\insertframesubtitle\@empty%
+%      {\node[anchor=west, font=\Large] at (2.5,0){\insertframetitle};}
+%      \else%
+%      {\node[anchor= west, font=\large] at (2.5,0.2){\insertframetitle};%
+%       \node[anchor= west, font=\small] at (3,0.1){\insertframesubtitle};}%
+%      \fi
+  \end{tikzpicture}
+  \end{beamercolorbox}
+%%%%%%%%%%%%%%%%%%%%%
+  \vspace{1cm}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{title}
+      \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip0.75cm%
+    \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.2cm%
+    \begin{beamercolorbox}[center,#1]{date}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+\mode<all>
